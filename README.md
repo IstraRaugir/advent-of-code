@@ -7,5 +7,5 @@ Contains solutions for [Advent of Code](https://adventofcode.com/)
 * 2018: -
 * 2019: -
 * 2020: -
-* 2021: Python (TODO)
+* 2021: Python (WIP)
 * 2022: GO (TODO)
