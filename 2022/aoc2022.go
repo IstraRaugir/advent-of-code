@@ -4,17 +4,48 @@ import (
 	"aoc2022/day01"
 	"aoc2022/day02"
 	"aoc2022/utils"
+	"fmt"
 )
 
 func main() {
+	for i := 1; i <= 25; i++ {
+		runForDay(i)
+	}
+}
+
+func runForDay(day int) {
+
 	var rawInput []string
 	var firstSolution, secondSolution string
+	dayString := mapDayToString(day)
 
-	rawInput = utils.ReadFile("day01/input.txt")
-	firstSolution, secondSolution = day01.Solve(rawInput)
-	utils.PrintSolutions("01", firstSolution, secondSolution)
+	defer func() {
+		if r := recover(); r != nil {
+			fmt.Println("Day", dayString, "encountered problem:", r)
+		}
+	}()
 
-	rawInput = utils.ReadFile("day02/input.txt")
-	firstSolution, secondSolution = day02.Solve(rawInput)
-	utils.PrintSolutions("02", firstSolution, secondSolution)
+	rawInput = utils.ReadFile("day" + dayString + "/input.txt")
+	firstSolution, secondSolution = solveForDay(day, rawInput)
+	utils.PrintSolutions(dayString, firstSolution, secondSolution)
+}
+
+func solveForDay(day int, rawInput []string) (string, string) {
+	switch day {
+	case 1:
+		return day01.Solve(rawInput)
+	case 2:
+		return day02.Solve(rawInput)
+	default:
+		panic("unimplemented")
+	}
+}
+
+func mapDayToString(day int) string {
+	dayString := ""
+	if day < 10 {
+		dayString += "0"
+	}
+	dayString += fmt.Sprint(day)
+	return dayString
 }
