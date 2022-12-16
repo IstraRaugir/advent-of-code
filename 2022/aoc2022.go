@@ -4,12 +4,20 @@ import (
 	"aoc2022/day01"
 	"aoc2022/day02"
 	"aoc2022/utils"
+	"flag"
 	"fmt"
 )
 
 func main() {
-	for i := 1; i <= 25; i++ {
-		runForDay(i)
+	dayToRun := flag.Int("day", 0, "which day to run")
+	flag.Parse()
+	fmt.Println(*dayToRun)
+	if *dayToRun != 0 {
+		runForDay(*dayToRun)
+	} else {
+		for i := 1; i <= 25; i++ {
+			runForDay(i)
+		}
 	}
 }
 
