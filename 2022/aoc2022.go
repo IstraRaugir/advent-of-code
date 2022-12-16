@@ -3,6 +3,7 @@ package main
 import (
 	"aoc2022/day01"
 	"aoc2022/day02"
+	"aoc2022/day03"
 	"aoc2022/utils"
 	"flag"
 	"fmt"
@@ -44,6 +45,8 @@ func solveForDay(day int, rawInput []string) (string, string) {
 		return day01.Solve(rawInput)
 	case 2:
 		return day02.Solve(rawInput)
+	case 3:
+		return day03.Solve(rawInput)
 	default:
 		panic("unimplemented")
 	}
