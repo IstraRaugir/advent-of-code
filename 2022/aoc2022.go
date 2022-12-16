@@ -11,7 +11,7 @@ import (
 func main() {
 	dayToRun := flag.Int("day", 0, "which day to run")
 	flag.Parse()
-	fmt.Println(*dayToRun)
+
 	if *dayToRun != 0 {
 		runForDay(*dayToRun)
 	} else {
