@@ -1,0 +1,12 @@
+{
+    "extends": "@tsconfig/node20/tsconfig.json",
+    "exclude": [
+        "./node_modules"
+    ],
+    "compilerOptions": {
+        "lib": [
+            "es2023",
+            "DOM"
+        ]
+    }
+}
